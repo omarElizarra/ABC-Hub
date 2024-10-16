@@ -35,16 +35,6 @@ namespace AVB_Hub.Controllers
                 {
                     try
                     {
-                        // Actualizar existencias del producto
-                        /*
-                        using (var command = new SqlCommand("UPDATE Producto SET Existencias = Existencias + @Cantidad WHERE ID_Producto = @ID_Producto", connection, transaction))
-                        {
-                            command.Parameters.AddWithValue("@ID_Producto", registroExistencias.ID_Producto);
-                            command.Parameters.AddWithValue("@Cantidad", registroExistencias.Cantidad_Agregada);
-
-                            await command.ExecuteNonQueryAsync();
-                        }
-                        */
 
                         // Registrar el cambio de existencias
                         using (var command = new SqlCommand("INSERT INTO Registro_Existencias (ID_Producto, Cantidad_Agregada, Fecha) VALUES (@ID_Producto, @Cantidad, GETDATE())", connection, transaction))

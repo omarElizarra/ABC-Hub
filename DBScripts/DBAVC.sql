@@ -1,4 +1,4 @@
--- Creación de la base de datos
+-- Creaciï¿½n de la base de datos
 CREATE DATABASE AVC_Administracion;
 GO
 
@@ -25,10 +25,17 @@ CREATE TABLE Usuarios (
 	Apellido_Paterno NVARCHAR(100) NOT NULL,
 	Apellido_Materno NVARCHAR(100) NOT NULL,
     Correo NVARCHAR(100) NOT NULL UNIQUE,
-    Contraseña NVARCHAR(255) NOT NULL,
+    Contraseï¿½a NVARCHAR(255) NOT NULL,
     ID_Rol NVARCHAR(50) NOT NULL -- Administrador, Vendedor, Administrativo
 	CONSTRAINT FK_Rol_Usuario FOREIGN KEY (ID_Rol) REFERENCES Rol(ID_Rol)
 );
+
+INSERT INTO Usuario ( [Nombre_Usuario], [Nombre], [Apellido_Paterno], [Apellido_Materno], [Correo], [ContraseÃ±a], [ID_Rol])
+VALUES
+('admin', 'jose', 'perez', 'lopez', 'test@dominio.com', 'avc123', 1),
+('vendedor1', 'Manuel', 'diaz', 'cruz', 'ventas@avc.com', 'ventas12', 2),
+('manu87', 'manuel', 'ortega', 'lira', 'manu@dom.com', '87manu', 3);
+
 
 -- Tabla de Productos
 CREATE TABLE Producto (
@@ -58,7 +65,7 @@ CREATE TABLE Detalle_Pedido (
     CONSTRAINT FK_Detalle_Pedido_Producto FOREIGN KEY (ID_Producto) REFERENCES Producto(ID_Producto)
 );
 
--- Tabla para Registrar las existencias (Histórico de cambios)
+-- Tabla para Registrar las existencias (Histï¿½rico de cambios)
 CREATE TABLE Registro_Existencias (
     ID_Registro INT IDENTITY(1,1) PRIMARY KEY,
     ID_Producto INT NOT NULL,
@@ -90,7 +97,7 @@ BEGIN
     INSERT INTO Pedido (ID_Vendedor, Nombre_Cliente, Total_Piezas)
     VALUES (@ID_Vendedor, @Nombre_Cliente, @Total_Piezas);
 
-    SET @ID_Pedido = SCOPE_IDENTITY(); -- Obtiene el ID del último registro insertado
+    SET @ID_Pedido = SCOPE_IDENTITY(); -- Obtiene el ID del ï¿½ltimo registro insertado
 END;
 GO
 
@@ -133,7 +140,7 @@ BEGIN
 END;
 GO
 
--- Índice para mejorar la consulta de productos por clave
+-- ï¿½ndice para mejorar la consulta de productos por clave
 CREATE INDEX idx_Producto_Clave
 ON Producto(Clave);
 GO

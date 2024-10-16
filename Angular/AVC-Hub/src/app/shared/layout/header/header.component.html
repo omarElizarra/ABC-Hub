@@ -1,96 +1,42 @@
-
 <mat-drawer-container autosize style="height: 100%; background-color: #5d6bd1">
-    <!-- toolbar -->
-    <mat-toolbar color="primary" class="mat-elevation-z5">
-      <button mat-icon-button aria-label="Toolbar menu" (click)="drawer.toggle()">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <span style="flex: 1"></span>
-      <button mat-icon-button aria-label="Account" [matMenuTriggerFor]="menu">
+  <!-- toolbar -->
+  <mat-toolbar color="primary" class="mat-elevation-z5">
+    <button mat-icon-button aria-label="Toolbar menu" (click)="drawer.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span style="flex: 1"></span>
+    <button mat-icon-button aria-label="Account" [matMenuTriggerFor]="menu">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="logout()">Logout</button>
+    </mat-menu>
+  </mat-toolbar>
+
+  <!-- drawer -->
+  <mat-drawer #drawer mode="over" style="min-width: 250px; border-radius: 0px">
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        Avc Hub
+      </mat-toolbar-row>
+      <mat-toolbar-row>
         <mat-icon>account_circle</mat-icon>
-      </button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item (click)="logout()">Logout</button>
-      </mat-menu>
+        <span>{{user.nombre+' '+user.apellidoPaterno +' ' +user.apellidoMaterno}}</span>
+      </mat-toolbar-row>
+      <mat-toolbar-row style="gap: 5px">
+        <mat-icon>mail</mat-icon>
+        <span>{{user.correo}}</span>
+      </mat-toolbar-row>
     </mat-toolbar>
-  
-    <!-- drawer -->
-    <mat-drawer #drawer mode="over" style="min-width: 250px; border-radius: 0px">
-      <mat-toolbar color="primary">
-        <mat-toolbar-row>
-            Avc Hub
-        </mat-toolbar-row>
-        <mat-toolbar-row >
-          <mat-icon>account_circle</mat-icon>
-          <span>{{user.nombre+' '+user.apellidoPaterno +'  ' +user.apellidoMaterno}}</span>
-        </mat-toolbar-row>
-        <mat-toolbar-row style="gap: 5px">
-          <mat-icon>mail</mat-icon>
-          <span>{{user.correo}}</span>
-        </mat-toolbar-row>
-      </mat-toolbar>
-      <mat-divider></mat-divider>
-      
-      <!--
-    <mat-list dense>
-        <mat-list-item *ngFor="let item of menuList">
-            <mat-icon class="mat-18" color="primary">ligature</mat-icon>
-            {{item}}
-    
-            <a [routerLink]="item.url" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
-                <i class="fas fa-home" [ngClass]="item.iconClass"></i>
-                <span [ngClass]="currentPanelState">{{ item.text }}</span>
-            </a>
-        </mat-list-item>
-    </mat-list>
-    --->
+    <mat-divider></mat-divider>
+
     <app-menu-item *ngIf="!!menuItems" [menu]="menuItems"></app-menu-item>
-     
-    <!-- 
-    
 
-    <mat-list>
-        <ng-container *ngFor="let item of menuItems">
-          <!- - If the item doesn't have children show it as list item- ->
-          <ng-container *ngIf="!item.subMenu">
-            <mat-list-item
-              *ngIf="item.title"
-              [routerLink]="item.link"
-              routerLinkActive="active"
-              [routerLinkActiveOptions]="{ exact: true }"
-            >
-              <mat-icon>
-                {{ item.icon }}
-              </mat-icon>
-              <span mat-line class="list-item">{{ item.title }}</span>
-            </mat-list-item>
-          </ng-container>
-  
-          <!- - If the item has subMenu show it as accordion-- >
-          <ng-container *ngIf="item.subMenu">
-            <mat-expansion-panel [expanded]="item.expanded">
-              <mat-expansion-panel-header>
-                <mat-list-item >
-                    <mat-icon>
-                        {{ item.icon }}
-                    </mat-icon>
-                    
-                    <span mat-line class="list-item"> - {{ item.title }}</span>
-                </mat-list-item>
-              </mat-expansion-panel-header>
-                <app-menu-item *ngIf="!!item.subMenu" [menu]="item.subMenu"></app-menu-item>
-            </mat-expansion-panel>
-          </ng-container>
-        </ng-container>
-      </mat-list>
-      
 
-    -->
-    </mat-drawer>
-  
-    <!-- page content -->
-    <div>
-      <ng-content></ng-content>
-    </div>
-  </mat-drawer-container>
-  
+  </mat-drawer>
+
+  <!-- page content -->
+  <div>
+    <ng-content></ng-content>
+  </div>
+</mat-drawer-container>

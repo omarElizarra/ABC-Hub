@@ -45,28 +45,6 @@ namespace AVB_Hub.Controllers
             return pedido;
         }
 
-        // Método POST para agregar un nuevo pedido
-        /*[HttpPost]
-        public async Task<IActionResult> RegistrarPedido(Pedido pedido)
-        {
-            using (var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
-            {
-                using (var command = new SqlCommand("sp_RegistrarPedido", connection))
-                {
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@ID_Vendedor", pedido.ID_Vendedor);
-                    command.Parameters.AddWithValue("@Nombre_Cliente", pedido.Nombre_Cliente);
-                    command.Parameters.AddWithValue("@Total_Piezas", pedido.Total_Piezas);
-
-                    connection.Open();
-                    await command.ExecuteNonQueryAsync();
-                    connection.Close();
-                }
-            }
-
-            return Ok("Pedido registrado con éxito.");
-        }*/
-
 
         [HttpPost]
         public async Task<IActionResult> RegistrarPedidoConDetalle(PedidoConDetalle pedidoConDetalle)

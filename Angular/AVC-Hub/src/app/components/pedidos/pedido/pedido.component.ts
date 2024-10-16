@@ -59,11 +59,6 @@ export class PedidoComponent {
       ID_Pedido: 0
     };
 
-    //const pedidoConDetalles: IDetallePedido = {
-    //  Pedido: pedido,
-    //  Detalles: [detallePedido]
-    //};
-
     this.pedidoService.registrarPedidoConDetalle(pedido).subscribe({
       next: (res) => {
         let _msg: string = 'Nuevo pedido!';

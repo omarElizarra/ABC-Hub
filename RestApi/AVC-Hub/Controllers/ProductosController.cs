@@ -87,45 +87,6 @@ namespace AVB_Hub.Controllers
         }
 
 
-        // Método PUT para actualizar la cantidad de existencias
-        /*
-        [HttpPut("{id}")]
-        public async Task<IActionResult> ActualizarExistencias(int id, [FromBody] int cantidad)
-        {
-            using (var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
-            {
-                connection.Open();
-
-                using (var transaction = connection.BeginTransaction())
-                {
-                    try
-                    {
-                        // Actualizar existencias del producto
-                        using (var command = new SqlCommand("UPDATE Producto SET Existencias = @Existencias WHERE ID_Producto = @ID_Producto", connection, transaction))
-                        {
-                            command.Parameters.AddWithValue("@ID_Producto", id);
-                            command.Parameters.AddWithValue("@Existencias", cantidad);
-
-                            await command.ExecuteNonQueryAsync();
-                        }
-
-                        // Confirmar la transacción
-                        transaction.Commit();
-                    }
-                    catch (Exception)
-                    {
-                        // En caso de error, revertir la transacción
-                        transaction.Rollback();
-                        throw;
-                    }
-                }
-
-                connection.Close();
-            }
-
-            return Ok("Existencias actualizadas con éxito.");
-        }
-        */
 
     }
 
