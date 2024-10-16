@@ -1,0 +1,72 @@
+<app-page-header icon="production_quantity_limits">
+    <p>Reporte Existencias</p>
+</app-page-header>
+
+
+<div class="container">
+
+    <label >Buscar Producto por Clave</label>
+    <form (ngSubmit)="buscarProducto()">
+      <mat-form-field appearance="fill">
+        <mat-label>Clave del Producto</mat-label>
+        <input matInput [formControl]="productoFormControl">
+      </mat-form-field>
+    </form>
+    <button mat-raised-button color="primary" type="submit">Buscar</button>
+  
+   
+    <div  *ngIf="isLoading" >
+        <mat-progress-bar
+          class="example-margin"
+          color="accent"
+          mode="query">
+      </mat-progress-bar>
+    </div>
+  
+    <div *ngIf="!isLoading" class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+        
+        <ng-container matColumnDef="ID_Producto">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>ID Producto</th>
+          <td mat-cell *matCellDef="let registro">{{ registro.iD_Producto }}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="Clave">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Clave</th>
+          <td mat-cell *matCellDef="let registro">{{ registro.clave }}</td>
+        </ng-container>
+
+        
+  
+        <ng-container matColumnDef="Nombre">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</th>
+            <td mat-cell *matCellDef="let registro">{{ registro.nombre }}</td>
+          </ng-container>
+
+
+        <ng-container matColumnDef="Total_Piezas">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Existencias</th>
+          <td mat-cell *matCellDef="let registro">{{ registro.existencias }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="Acciones">
+            <th mat-header-cell *matHeaderCellDef>Acciones</th>
+            <td mat-cell *matCellDef="let producto">
+              <button mat-button (click)="openDialog(producto.iD_Producto)">
+                <mat-icon class="mat-18">inventory_2</mat-icon> Agregar producto
+              </button>
+            </td>
+          </ng-container>
+  
+      
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+  
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+  
+   
+  
+</div>

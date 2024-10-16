@@ -1,0 +1,43 @@
+# Build Folders
+bin/
+obj/
+
+# Visual Studio Files
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# ASP.NET Core
+appsettings*.json
+*.db
+
+# NuGet Packages
+*.nupkg
+*.snupkg
+packages/
+*.nupkg
+
+# Logs
+*.log
+
+# Temporary Files
+*.tmp
+*.temp
+~$*
+
+# Rider Files
+.idea/
+
+# Visual Studio Code Files
+.vscode/
+
+# Windows Files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# OS generated files
+.DS_Store
+*.swp

@@ -1,0 +1,15 @@
+<h2 mat-dialog-title>Agregar Existencias</h2>
+<div mat-dialog-content>
+  <form [formGroup]="existenciasForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Cantidad a Agregar</mat-label>
+      <input matInput type="number" formControlName="Cantidad_Agregada" required>
+      <mat-error *ngIf="existenciasForm.get('Cantidad_Agregada')?.hasError('required')">Cantidad es requerida</mat-error>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancelar</button>
+  <button mat-button (click)="onSubmit()" [disabled]="existenciasForm.invalid">Agregar</button>
+</div>
+

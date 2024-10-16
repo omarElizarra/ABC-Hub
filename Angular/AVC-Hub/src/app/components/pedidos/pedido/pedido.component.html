@@ -1,0 +1,34 @@
+<app-page-header icon="category">
+    <p>Crear pedido</p>
+</app-page-header>
+
+<ng-content #product>
+    <form [formGroup]="pedidoForm" (ngSubmit)="onSubmit()">
+      
+  
+      <mat-form-field class='form-field-doble'appearance="fill">
+        <mat-label>Nombre Cliente</mat-label>
+        <input matInput type="text" formControlName="Nombre_Cliente" required>
+        <mat-error *ngIf="pedidoForm.get('Nombre_Cliente')?.hasError('required')">Nombre Cliente es requerido</mat-error>
+      </mat-form-field>
+      <br>
+  
+      <mat-form-field class='form-field'appearance="fill">
+        <mat-label>Seleccione Producto</mat-label>
+        <mat-select formControlName="ID_Producto" required>
+          <mat-option *ngFor="let producto of productos" [value]="producto.iD_Producto">{{ producto.nombre }}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="pedidoForm.get('ID_Producto')?.hasError('required')">Producto es requerido</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field class='form-field'appearance="fill">
+        <mat-label>Cantidad</mat-label>
+        <input matInput type="number" formControlName="Cantidad" required>
+        <mat-error *ngIf="pedidoForm.get('Cantidad')?.hasError('required')">Cantidad es requerida</mat-error>
+      </mat-form-field>
+  
+      <button mat-raised-button color="primary" type="submit" [disabled]="pedidoForm.invalid">Crear </button>
+    </form>
+
+    <h4>{{pedidoForm.value.iD_Producto}}</h4>
+</ng-content>

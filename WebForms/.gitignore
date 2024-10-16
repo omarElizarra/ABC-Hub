@@ -1,0 +1,47 @@
+# Build Folders
+bin/
+obj/
+
+# Visual Studio Files
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# NuGet Packages
+packages/
+*.nupkg
+*.snupkg
+
+# Visual Studio Generated Files
+*.sln.ide
+*.sln.cache
+*.sln.docstates
+
+# Logs
+*.log
+
+# Temporary Files
+*.tmp
+*.temp
+~$*
+
+# Windows Files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# OS generated files
+.DS_Store
+*.swp
+
+# Publish Folder
+Publish/
+
+# Web.config transformation files
+Web.*.config
+
+# SQL Server files
+*.mdf
+*.ldf

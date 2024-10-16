@@ -1,0 +1,21 @@
+.container {
+    max-width: auto;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .form-field {
+    min-width: 20rem;
+    padding: 1rem 1rem !important;
+  }
+
+  .form-field-doble{
+    min-width: 42rem !important;
+    padding: 1rem 1rem !important;
+  }
+
+  
+  button {
+    display: block;
+    margin: 1rem;
+  }

@@ -1,0 +1,29 @@
+.card-container {
+  padding: 20px;
+  background-color: #3f51b5;
+  height: 100%
+}
+
+.login-container {
+    max-width: 450px;
+    margin: auto;
+    opacity: 85%;
+    border-radius: 3px !important;
+
+    display: flex;
+     flex-direction: column;
+     margin: 100px auto; 
+  }
+
+.form-field{
+  width: 100%;
+}
+
+.button-login{
+  border-radius: 2px;
+  width: 100%;
+  margin-top: 2rem;
+}
+  
+  
+  

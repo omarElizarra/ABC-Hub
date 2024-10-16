@@ -1,0 +1,29 @@
+<div class="card-container">
+
+    
+    <mat-card class="login-container">
+        <mat-toolbar color="primary">
+            <span>Iniciar Sesión</span>
+        </mat-toolbar>
+        <mat-card-content>
+            <form [formGroup]="loginForm" >
+
+                <mat-form-field class='form-field' appearance="outline">
+                    <mat-icon matSuffix>account_circle</mat-icon>
+                    <mat-label>Usuario</mat-label>
+                    <input matInput formControlName="usuario" name="usuario" required>
+                </mat-form-field>
+
+                <mat-form-field class='form-field' appearance="outline">
+                    <mat-icon matSuffix>password</mat-icon>
+                    <mat-label>Contraseña</mat-label>
+                    <input matInput formControlName="contraseña" name="contraseña" type="password" required>
+                </mat-form-field>
+
+            </form>
+            <button mat-raised-button class="button-login" (click)="onLogin()" color="primary" [disabled]="loginForm.invalid">Iniciar Sesión</button>
+        </mat-card-content>
+    </mat-card>
+
+</div>
+

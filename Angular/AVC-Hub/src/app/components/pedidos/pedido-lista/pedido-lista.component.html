@@ -1,0 +1,54 @@
+<app-page-header icon="manage_search">
+    <p>Lista de Pedidos</p>
+</app-page-header>
+
+<div *ngIf="isLoading" >
+    <mat-progress-bar
+      class="example-margin"
+      color="accent"
+      mode="query">
+  </mat-progress-bar>
+</div>
+
+<div *ngIf="!isLoading" class="container">
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+  
+        <!-- ID Pedido Column -->
+        <ng-container matColumnDef="iD_Pedido">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>ID Pedido</th>
+          <td mat-cell *matCellDef="let pedido">{{ pedido.iD_Pedido }}</td>
+        </ng-container>
+  
+        <!-- ID Vendedor Column -->
+        <ng-container matColumnDef="iD_Vendedor">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>ID Vendedor</th>
+          <td mat-cell *matCellDef="let pedido">{{ pedido.iD_Vendedor }}</td>
+        </ng-container>
+  
+        <!-- Fecha Column -->
+        <ng-container matColumnDef="fecha">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha</th>
+          <td mat-cell *matCellDef="let pedido">{{ pedido.fecha | date }}</td>
+        </ng-container>
+  
+        <!-- Nombre Cliente Column -->
+        <ng-container matColumnDef="nombre_Cliente">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre Cliente</th>
+          <td mat-cell *matCellDef="let pedido">{{ pedido.nombre_Cliente }}</td>
+        </ng-container>
+  
+        <!-- Total Piezas Column -->
+        <ng-container matColumnDef="total_Piezas">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Total Piezas</th>
+          <td mat-cell *matCellDef="let pedido">{{ pedido.total_Piezas }}</td>
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+  
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+  </div>
+  

@@ -1,0 +1,28 @@
+<app-page-header icon="category">
+    <p>Registrar Producto</p>
+</app-page-header>
+
+<div class="container">
+    <form [formGroup]="productoForm" (ngSubmit)="onSubmit()">
+      <mat-form-field class="form-field " appearance="fill">
+        <mat-label>Clave</mat-label>
+        <input matInput formControlName="Clave" required>
+        <mat-error *ngIf="productoForm.get('Clave')?.hasError('required')">Clave es requerida</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field class="form-field " appearance="fill">
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="Nombre" required>
+        <mat-error *ngIf="productoForm.get('Nombre')?.hasError('required')">Nombre es requerido</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field class="form-field " appearance="fill">
+        <mat-label>Existencias</mat-label>
+        <input matInput type="number" formControlName="Existencias" required>
+        <mat-error *ngIf="productoForm.get('Existencias')?.hasError('required')">Existencias es requerida</mat-error>
+      </mat-form-field>
+  
+      <button mat-raised-button color="primary" type="submit" [disabled]="productoForm.invalid">Agregar Producto</button>
+    </form>
+  </div>
+  

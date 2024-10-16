@@ -1,0 +1,6 @@
+@AVB_Hub_HostAddress = http://localhost:5161
+
+GET {{AVB_Hub_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
